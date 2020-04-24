@@ -18,6 +18,8 @@ export const todoReducer = (state, action) => {
           return { ...todo, completed: !todo.completed };
         }
       });
+    case "Clear_Completed":
+      return [""];
 
     default:
       return state;

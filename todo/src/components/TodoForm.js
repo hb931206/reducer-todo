@@ -7,6 +7,11 @@ const TodoForm = (props) => {
     props.add({ item: toDo, completed: false, id: Date.now() });
   };
 
+  const clearItems = (e) => {
+    e.preventDefault();
+    props.clear({ item: "" });
+  };
+
   return (
     <form onSubmit={submit}>
       <input
@@ -15,6 +20,7 @@ const TodoForm = (props) => {
         onChange={(e) => setTodo(e.target.value)}
       />
       <button type="submit">Add Item </button>
+      <button onClick={clearItems}> Clear All</button>
     </form>
   );
 };
