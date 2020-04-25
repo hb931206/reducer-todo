@@ -16,10 +16,14 @@ export const todoReducer = (state, action) => {
       return state.map((todo) => {
         if (action.payload === todo.id) {
           return { ...todo, completed: !todo.completed };
+        } else {
+          return todo;
         }
       });
     case "Clear_Completed":
-      return [""];
+      return state.filter((todo) => {
+        return todo.completed === false;
+      });
 
     default:
       return state;
